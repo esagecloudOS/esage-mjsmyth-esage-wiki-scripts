@@ -1,0 +1,67 @@
+<table>
+<tbody>
+<tr>
+<th class="info" data-highlight-class="info">Property</th>
+<th class="info" data-highlight-class="info">Description</th>
+{{#headingLinks}}
+<th class="info" colspan="1" data-highlight-class="info"><ac:link><ri:attachment ri:filename="{{ExampleFile}}" /><ac:link-body><ac:image ac:thumbnail="true" ac:width="30"><ri:attachment ri:filename="{{ExampleImage}}" /></ac:image></ac:link-body></ac:link></th>
+{{/headingLinks}}
+<th class="info" colspan="1" data-highlight-class="info">Info</th>
+</tr>
+{{#categories}}
+{{#entries}}   
+<tr>
+{{#propertyNameGroup}}
+<td><p>{{#linkCategory}}<ac:macro ac:name="anchor"><ac:default-parameter>{{categoryName}}</ac:default-parameter></ac:macro>{{/linkCategory}}<strong>{{groupPropertyName}}</strong></p>
+<ul>
+<li style="list-style-type: none;background-image: none;">
+<ul>
+{{#propertyGroups}}
+<li><strong>{{propertyGroupItem}}</strong></li>
+{{/propertyGroups}}
+</ul>
+</li>
+</ul>
+{{/propertyNameGroup}}
+{{^propertyNameGroup}}
+<td><p>{{#linkCategory}}<ac:macro ac:name="anchor"><ac:default-parameter>{{categoryName}}</ac:default-parameter></ac:macro>{{/linkCategory}}{{groupPropertyName}}<strong>{{propertyName}}</strong></p>
+{{/propertyNameGroup}}
+</td>
+<td><p>{{propertyDescription}}<br/>
+{{#propertyDefaultGroup}}
+<span><em>Defaults: </em></span><br/>
+<ul>
+<li style="list-style-type: none;background-image: none;">
+<ul>
+{{#propertyGroupDefaults}}
+<li>{{propertyGroupItemName}} = {{propertyGroupItemDefault}}</li>
+{{/propertyGroupDefaults}}
+</ul>
+</li>
+</ul>
+{{/propertyDefaultGroup}}
+{{^propertyDefaultGroup}}
+{{#propertyDefault}}
+<span><em>Default: {{propertyDefault}}</em></span><br/>
+{{/propertyDefault}}
+{{/propertyDefaultGroup}}
+{{#propertyRange}}
+<span><em>Range:{{propertyRange}}</em></span>
+{{/propertyRange}}
+</p></td>
+{{#propertyProfiles}}
+{{#profile}}
+<td><p><ac:link><ri:attachment ri:filename="{{profileExampleFile}}"/><ac:link-body><ac:image ac:thumbnail="true" ac:width="30"><ri:attachment ri:filename="{{profileExampleImage}}"/></ac:image></ac:link-body></ac:link></p></td>
+{{/profile}}
+{{^profile}}
+<td><p>
+</p></td>
+{{/profile}}
+{{/propertyProfiles}}
+<td><p>
+</p></td>
+</tr>
+{{/entries}}
+{{/categories}}
+</tbody>
+</table>
